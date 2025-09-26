@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
 {
     private int score;
     private int highScore;
+    private bool isGameOver = false;
 
     [SerializeField] GameObject playBtn;
     [SerializeField] Player player;
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour
         instance = this;
 
         DontDestroyOnLoad(gameObject);
+
     }
 
     private void Start()
@@ -30,6 +32,8 @@ public class GameManager : MonoBehaviour
         Pause();
 
         highScore = PlayerPrefs.GetInt("HighScore", 0);
+        gameOver.SetActive(false);
+        playBtn.SetActive(true);
     }
 
     public void Play()
@@ -59,6 +63,7 @@ public class GameManager : MonoBehaviour
     }
     public void GameOver()
     {
+        isGameOver = true;
         gameOver.SetActive(true);
         playBtn.SetActive(true);
 

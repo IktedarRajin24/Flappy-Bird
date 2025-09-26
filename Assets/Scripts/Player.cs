@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
+            AudioManager.instance.PlayAudio(Sound.Jump);
             direction = Vector3.up * force;
         }
 

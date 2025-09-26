@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
 
     public void Play()
     {
+        AudioManager.instance.PlayAudio(Sound.ButtonClick);
         score = 0;
         scoreText.text = score.ToString();
 
